@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 Uang Saku Siswa</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 Uang Saku</h1>
+            <p>Tracker Keuangan Siswa</p>
+        </div>
+
+        <div class="balance-card">
+            <div class="currency">Rp</div>
+            <div class="balance" id="balance">0</div>
+            <div>Total Saldo</div>
+        </div>
+
+        <!-- PIE CHART SECTION -->
+        <div class="chart-section">
+            <h3>📊 Ringkasan Pengeluaran</h3>
+            <canvas id="pieChart" width="300" height="300"></canvas>
+        </div>
+
+        <div class="input-section">
+            <!-- Form Pengeluaran -->
+            <div class="form-group">
+                <label>💸 Pengeluaran</label>
+                <input type="number" id="pengeluaranAmount" placeholder="Masukkan jumlah (Rp)" min="0">
+                <input type="text" id="pengeluaranItem" placeholder="Beli apa? (gorengan, es teh)">
+                <input type="datetime-local" id="pengeluaranDate">
+            </div>
+            <button class="btn btn-pengeluaran" onclick="addPengeluaran()">➖ Kurangi Uang</button>
+
+            <!-- Form Pemasukan -->
+            <div class="form-group">
+                <label>➕ Pemasukan</label>
+                <input type="number" id="pemasukanAmount" placeholder="Masukkan jumlah (Rp)" min="0">
+                <input type="text" id="pemasukanNotes" placeholder="Uang saku mingguan / hadiah">
+            </div>
+            <button class="btn btn-pemasukan" onclick="addPemasukan()">➕ Tambah Uang</button>
+        </div>
+
+        <div class="history">
+            <h3>📋 Riwayat Transaksi</h3>
+            <div id="historyList" class="empty-state">
+                Belum ada transaksi. Tambahkan pemasukan atau pengeluaran!
+            </div>
+            <button class="reset-btn" onclick="resetData()">🗑️ Reset Semua Data</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
